@@ -1,5 +1,5 @@
 const API_URL = 'https://api.airtable.com/v0/appvzE7WewgSrHiFm';
-const API_KEY = `Bearer keyaXt4qtmUYjZljo`;
+const API_KEY = `Bearer ${process.env.REACT_APP_API_KEY}`;
 
 export const fetchMovies = async () => {
   const response = await fetch(`${API_URL}/movies/`, {
