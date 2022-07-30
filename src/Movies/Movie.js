@@ -6,14 +6,17 @@ import { MovieContent } from './MovieContent';
 
 function Movie() {
   const [movie, setMovie] = useState(null);
+  const [hasError, setHasError] = useState(false);
   const { id } = useParams();
 
   const fetchData = async () => {
     try {
       const data = await fetchMovie(id);
+      console.log('Movie data: ', data);
       setMovie(data);
     } catch (error) {
       // error handling
+      setHasError(true);
     }
   }
 
@@ -28,6 +31,8 @@ function Movie() {
   return (
     <div>
       <div>
+        {hasError && <p>Error message</p>}
+        {!movie && <p>Loading...</p>}
         {movie && renderMovie(movie)}
       </div>
     </div>
