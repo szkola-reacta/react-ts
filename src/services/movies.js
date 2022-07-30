@@ -7,6 +7,7 @@ export const fetchMovies = async () => {
       Authorization: API_KEY,
     }
   });
+  console.log('response: ', response);
   const data = await response.json();
 
   return data.records;

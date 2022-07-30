@@ -9,6 +9,7 @@ function Movies() {
   const fetchData = async () => {
     try {
       const data = await fetchMovies();
+      console.log('data: ', data);
       setMovies(data);
     } catch (error) {
       // error handling
@@ -25,6 +26,7 @@ function Movies() {
       {movies.map(movie => (
         <div key={movie.id}>
           <h2><Link to={`/movie/${movie.id}`}>{movie.fields.name}</Link></h2>
+          {/* <h2><Link to={`/movie/${movie.id}`}>{movie.fields.name}</Link></h2> */}
           <p>{movie.fields.description}</p>
         </div>
       ))}
