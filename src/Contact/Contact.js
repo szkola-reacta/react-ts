@@ -18,7 +18,7 @@ function Contact() {
 
   const renderConfirmation = () => {
     return (
-      <div>E-mail sent: {user.name}, {user.email}</div>
+      <div className="message">E-mail sent: {user.name}, {user.email}</div>
     );
   }
 

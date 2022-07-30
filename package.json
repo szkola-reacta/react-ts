@@ -17,7 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "msw:update": "npx msw init public --no-save"
+    "msw:update": "npx msw init public --no-save",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^10.3.1",
     "msw": "^0.44.2"
   }
 }
