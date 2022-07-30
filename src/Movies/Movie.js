@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { fetchMovie } from '../services/movies';
+import { MovieContent } from './MovieContent';
 
 function Movie() {
   const [movie, setMovie] = useState(null);
@@ -21,12 +22,7 @@ function Movie() {
   }, []);
 
   const renderMovie = (movie) => {
-    return (
-      <div>
-        <h2>{movie.fields.name}</h2>
-        <p>{movie.fields.description}</p>
-      </div>
-    );
+    return <MovieContent movie={movie} />;
   }
 
   return (
