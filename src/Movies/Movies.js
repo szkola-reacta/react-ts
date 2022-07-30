@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { fetchMovies } from '../services/movies';
+import { short } from '../utils/short';
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -25,9 +26,12 @@ function Movies() {
     <div>
       {movies.map(movie => (
         <div key={movie.id}>
-          <h2><Link to={`/movie/${movie.id}`}>{movie.fields.name}</Link></h2>
-          {/* <h2><Link to={`/movie/${movie.id}`}>{movie.fields.name}</Link></h2> */}
-          <p>{movie.fields.description}</p>
+          <h2>
+            <Link to={`/movie/${movie.id}`}>
+              {movie.fields.name}
+            </Link>
+          </h2>
+          <p>{short(movie.fields.description)}</p>
         </div>
       ))}
     </div>
