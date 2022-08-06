@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { fetchMovie } from '../services/movies';
 import { MovieContent } from './MovieContent';
-import type { Movie } from './Movie.types';
+import type { Movie as MovieType } from './Movie.types';
 
 function Movie() {
   const [movie, setMovie] = useState(null);
@@ -12,9 +12,11 @@ function Movie() {
 
   const fetchData = async () => {
     try {
-      const data = await fetchMovie(id);
-      console.log('Movie data: ', data);
-      setMovie(data);
+      if (id) {
+        const data = await fetchMovie(id);
+        console.log('Movie data: ', data);
+        setMovie(data);
+      }
     } catch (error) {
       // error handling
       setHasError(true);
@@ -22,10 +24,10 @@ function Movie() {
   }
 
   useEffect(() => {
-   fetchData();
+    fetchData();
   }, []);
 
-  const renderMovie = (movie: Movie) => {
+  const renderMovie = (movie: MovieType) => {
     return <MovieContent movie={movie} />;
   }
 

@@ -13,7 +13,7 @@ export const fetchMovies = async () => {
   return data.records;
 }
 
-export const fetchMovie = async (id) => {
+export const fetchMovie = async (id: string) => {
   const response = await fetch(`${API_URL}/movies/${id}`, {
       headers: {
         Authorization: API_KEY,
