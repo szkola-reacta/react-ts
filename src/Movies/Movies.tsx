@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { fetchMovies } from '../services/movies';
 import { short } from '../utils/short';
+import type { Movie } from './Movie.types';
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -24,7 +25,7 @@ function Movies() {
 
   return (
     <div>
-      {movies.map(movie => (
+      {movies.map((movie: Movie) => (
         <div key={movie.id}>
           <h2>
             <Link to={`/movie/${movie.id}`}>

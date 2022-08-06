@@ -1,4 +1,10 @@
-function MovieContent(props) { // props.movie
+import type { Movie } from './Movie.types';
+
+type Props = {
+  readonly movie: Movie;
+}
+
+function MovieContent(props: Props) { // props.movie
   const { movie } = props;
   return (
     <div>

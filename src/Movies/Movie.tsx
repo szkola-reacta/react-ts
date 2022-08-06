@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { fetchMovie } from '../services/movies';
 import { MovieContent } from './MovieContent';
+import type { Movie } from './Movie.types';
 
 function Movie() {
   const [movie, setMovie] = useState(null);
@@ -24,7 +25,7 @@ function Movie() {
    fetchData();
   }, []);
 
-  const renderMovie = (movie) => {
+  const renderMovie = (movie: Movie) => {
     return <MovieContent movie={movie} />;
   }
 
