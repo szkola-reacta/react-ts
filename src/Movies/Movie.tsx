@@ -6,7 +6,7 @@ import { MovieContent } from './MovieContent';
 import type { Movie as MovieType } from './Movie.types';
 
 function Movie() {
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState<MovieType | null>(null);
   const [hasError, setHasError] = useState(false);
   const { id } = useParams();
 
@@ -15,7 +15,9 @@ function Movie() {
       if (id) {
         const data = await fetchMovie(id);
         console.log('Movie data: ', data);
-        setMovie(data);
+        if (data) {
+          setMovie(data);
+        }
       }
     } catch (error) {
       // error handling

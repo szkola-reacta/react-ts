@@ -6,7 +6,7 @@ import { short } from '../utils/short';
 import type { Movie } from './Movie.types';
 
 function Movies() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<Movie[] | []>([]);
 
   const fetchData = async () => {
     try {
